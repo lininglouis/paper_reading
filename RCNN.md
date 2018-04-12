@@ -1,7 +1,7 @@
 ## Notes on RCNN
 
 
-####training 
+#### training 
 
 0) fined and get N class CNN classifier
 
