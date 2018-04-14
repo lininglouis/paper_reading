@@ -51,6 +51,9 @@ for each image
 
 
 
+评价
+RCNN mainly plays as a **classifier**.
+It does not predict object bounds(SS does this), except for refining it by bounding box regresion
 
 
 
