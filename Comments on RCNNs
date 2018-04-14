@@ -23,3 +23,4 @@ rcnn需要多阶段训练
 fastrcnn
 先从input 生成一张 feature map 
 然后feature map 根据SS的各种proposal regon，  对每个proposal region都可以用一个shared ROI pooling 生成固定尺寸的输出向量
+https://webcourse.cs.technion.ac.il/236815/Spring2016/ho/WCFiles/RCNN_X3_6pp.pdf
