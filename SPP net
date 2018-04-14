@@ -1,0 +1,3 @@
+record 2000 region proposal position first
+get the 2000 proposal map from the conv feature map with 2000 position
+and put them into pooling layer
