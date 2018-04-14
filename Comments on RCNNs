@@ -12,3 +12,14 @@ faster rcnn
 为什么说对于边缘的预测能力是比较弱的呢？ 是因为本身在标注的时候object的完整标注数据比较多，被边缘切分的object的这种标注数据比较少，所以分类器学到的更多的是完整object 的特征信息。
 因此假如测试集出现了一个只有半个自行车的图像，在训练集里面这种半个自行车的训练数据比较少，所以更难以识别。
 解决办法是只用图像中间的object评价检测器。 或者对于train的数据用crop，这样就能学到更多的被切分的物体的特征（但是样本不平衡还是存在的）
+
+
+
+rcnn需要多阶段训练
+1 训练1： 使用预训练imagenet 来finetune object detection的分类器 softmax最后输出
+2 训练2: 将上面fine tune好的分类网络的softmax之前的conv7 4096的vector向量保存下来， N个类每个类训练一个SVM二分类器
+3 训练3: 对于SS的proposal region使用bb regression对其进行refinement
+
+fastrcnn
+先从input 生成一张 feature map 
+然后feature map 根据SS的各种proposal regon，  对每个proposal region都可以用一个shared ROI pooling 生成固定尺寸的输出向量
