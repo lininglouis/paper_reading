@@ -24,3 +24,6 @@ fastrcnn
 先从input 生成一张 feature map 
 然后feature map 根据SS的各种proposal regon，  对每个proposal region都可以用一个shared ROI pooling 生成固定尺寸的输出向量
 https://webcourse.cs.technion.ac.il/236815/Spring2016/ho/WCFiles/RCNN_X3_6pp.pdf
+
+
+在 Faster R-CNN 中，anchor经过优胜劣汰升级为 proposal后，成为RoI ，之后 输入 RoIPooling 进行 size归一化
