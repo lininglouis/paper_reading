@@ -1,0 +1,14 @@
+RCNN更多是个分类器，bb回归主要由ss来做， 只不过在后期对bb进行了优化。
+它的主要performance是依托于SS的精度。
+SSRCNN mainly plays as a classifier. It does not predict object bounds(SS does this), except for refining it by bounding box regresion
+
+fast rcnn 
+使用了ROI pooling 能够更好的提取固定长度特征
+先整体生成特征图，然后对ss的ROI进行特征提取， 减少了计算量
+
+faster rcnn
+
+
+为什么说对于边缘的预测能力是比较弱的呢？ 是因为本身在标注的时候object的完整标注数据比较多，被边缘切分的object的这种标注数据比较少，所以分类器学到的更多的是完整object 的特征信息。
+因此假如测试集出现了一个只有半个自行车的图像，在训练集里面这种半个自行车的训练数据比较少，所以更难以识别。
+解决办法是只用图像中间的object评价检测器。 或者对于train的数据用crop，这样就能学到更多的被切分的物体的特征（但是样本不平衡还是存在的）
