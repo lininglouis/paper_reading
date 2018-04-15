@@ -27,3 +27,15 @@ https://webcourse.cs.technion.ac.il/236815/Spring2016/ho/WCFiles/RCNN_X3_6pp.pdf
 
 
 在 Faster R-CNN 中，anchor经过优胜劣汰升级为 proposal后，成为RoI ，之后 输入 RoIPooling 进行 size归一化
+
+
+
+--------------------------------
+RCNN主要使用SS生成bounding box， 然后使用CNN和SVM作为分类器，然后对proposal进行回归
+
+fast rcnn 先生成feauture图，然后基于SS的位置，尽心回归和预测
+同时使用了ROI pooling 更好的让不同尺寸的原始图像，生成固定大小的向量
+
+faster rcnn 使用训练数据生成RPN，
+每个位置预测9个anchorbox，每个图片跳出128个正样本anchorbox（IOU>0.7），和128个负样本anchorbox（IOU<0.3)（设定正负比是1:1)，回归出objectiveness和anchorbox相对于GT box的相对位置，从而确定最终的proposals
+从而学习到对一个图像的各种anchorbox的feature map， 能够学习到objectnessscore和相对GTbox的位置是多少
