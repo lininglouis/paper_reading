@@ -39,3 +39,24 @@ fast rcnn 先生成feauture图，然后基于SS的位置，尽心回归和预测
 faster rcnn 使用训练数据生成RPN，
 每个位置预测9个anchorbox，每个图片跳出128个正样本anchorbox（IOU>0.7），和128个负样本anchorbox（IOU<0.3)（设定正负比是1:1)，回归出objectiveness和anchorbox相对于GT box的相对位置，从而确定最终的proposals
 从而学习到对一个图像的各种anchorbox的feature map， 能够学习到objectnessscore和相对GTbox的位置是多少
+
+
+
+RPN结构(https://blog.csdn.net/sloanqin/article/details/51545125)
+1) 通过ZF 将input 224x224x3 to 生成 13*13*256的feature
+2) 13*13*256的featuremap 通过 3*3卷积, 得到(13 + 2*1 - 3) / 1 = 12 输出
+每个3*3卷积，都对应一个256的向量， 最后输出一个12*12*256的模型
+
+3) 输出
+  分类
+  对12*12*256  进行1*1*256*18  直接将256向量非线性转化为18， 也就是anchor*2 = 9 *2 =18vector，其实是9个anchor box对应的binary classifier
+  回归
+  一共9个anchor box， 每个回归出4个(x, y, w, h)，一共 36 个regression
+所以对于12*12*256, 有18个classification输出， 36个bbox坐标输出
+
+
+
+
+
+
+
