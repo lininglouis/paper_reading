@@ -16,4 +16,7 @@ http://www.360doc.com/content/17/0303/14/10408243_633634497.shtml
 然后每个region proposal做ROI pooling
 
 3对proposal region做分类和回归
+https://arxiv.org/pdf/1603.07285.pdf
+
+
 
