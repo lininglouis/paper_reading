@@ -1,0 +1,3 @@
+why skip connection works:
+it is easier to learn a residual function, than a brand new mapping
+假如优化目标函数是逼近一个恒等映射, 而不是0映射， 那么学习找到对恒等映射的扰动会比重新学习一个映射函数要容易。从下图可以看出，残差函数一般会有较小的响应波动，表明恒等映射是一个合理的预处理。
