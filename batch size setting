@@ -1,2 +1,0 @@
-batch size过小，不稳定收敛不好
-batchsiize过大，影响了随机性

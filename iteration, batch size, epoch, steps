@@ -1,0 +1,8 @@
+batch size过小，不稳定收敛不好
+batchsiize过大，影响了随机性
+
+data 1000 samples
+batch size 10
+epochs 5
+
+then your total steps will be 500 steps
