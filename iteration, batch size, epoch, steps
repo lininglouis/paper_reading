@@ -6,3 +6,6 @@ batch size 10
 epochs 5
 
 then your total steps will be 500 steps
+
+
+steps per epoch = total data / batch size = 1000/10 = 100
