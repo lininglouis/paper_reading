@@ -1,0 +1,42 @@
+1: 10000   999* 1000 hard examples
+
+
+hard example: retina,  hard negative mining,......
+objectness: yolo, RPN, ssd
+感受野
+
+
+100个目标， 猫
+objective 识别狗--> 他不是object blob-like --
+two sage --> 目标 ->类别 bbox
+
+
+
+RPN 是从图片生成WxH个位置，每个位置输出9个anchor，每个anchor对应2个分类和4个回归
+通过IOU筛选出正负样本的anchor，然后直接输出objectness score和 reg 信息。  
+
+
+正样本anchor   iou>0.7 的样本， anchor的GT objectness值是1
+负样本anchor   iou<0.3 的样本， anchor的GT objectness值是0
+
+每个anchor有2个类别值，4个回归值
+fastercnn RPN的预测objectness是靠网络预测出来的。
+从而计算objectness score 和 相对ground truth的reg的loss
+
+
+
+
+yolo v2
+通过IOU计算  confidence score
+
+
+1) confidence score是普适的，每个box都得算，(但是权重要调低一些)
+2) bbox  x,y,w,h是只针对负责的bbox predictor的，（但是这部分权重要相对class prob低一些)
+3) class probabiliy 是只针对落在grid cell的, 
+regression     : bbox predictor is responsible for GT box whose has highest IOU with it.
+classification : grid cell is responsible for object whose center falls in that cell
+
+yolo的confidence score
+GT_confidence是根据和GTbox的IOU计算的
+pred是靠网络预测出来的
+
