@@ -20,3 +20,8 @@ https://arxiv.org/pdf/1603.07285.pdf
 
 
 
+
+
+hard example: retina,  hard negative mining,......
+objectness: yolo, RPN, ssd
+感受野
