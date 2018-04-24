@@ -1,0 +1,10 @@
+SSD  sample a patch, similar size to SSD
+yolo  sample a patch, similar size to SSD (320 to 448)   448 full size
+keras image ---> per image do  sample,   for loop each bbox
+they are  one to one 
+
+
+multi-processing
+batch processin on bboxes
+
+
