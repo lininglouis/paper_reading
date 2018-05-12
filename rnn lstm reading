@@ -1,0 +1,4 @@
+a common loss:  negative log probability
+- log(prob) 
+when prob 1, loss =0
+when prob is so small, close to zero,  loss increaset ++
