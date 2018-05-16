@@ -2,3 +2,9 @@ a common loss:  negative log probability
 - log(prob) 
 when prob 1, loss =0
 when prob is so small, close to zero,  loss increaset ++
+
+
+KL divergence KL散度
+
+KL衡量两个分布之间的差异
+KL散度衡量非负的，当KL散度为0，则P和Q在离散变量情况下服从相同分布。
