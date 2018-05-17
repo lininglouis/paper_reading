@@ -13,3 +13,10 @@ An alternative approach to attention is to use Reinforcement Learning to predict
 相比传统rnn更加灵活，适合复杂多模态的映射
 
 
+
+
+在翻译任务中，Query可以视为原语词向量序列，而Key和Value可以视为目标语词向量序列。一般的注意力机制可解释为计算Query和Key之间的相似性，并利用这种相似性确定Query和Value之间的注意力关系。
+
+
+首先在编码器到解码器的层级中，Query来源于前面解码器的输出，而记忆的Key与Value都来自编码器的输出。这允许解码器中的每一个位置都注意输入序列中的所有位置，因此它实际上模仿了序列到序列模型中典型的编码器-解码器注意力机制。
+ 
