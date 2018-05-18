@@ -20,3 +20,12 @@ An alternative approach to attention is to use Reinforcement Learning to predict
 
 首先在编码器到解码器的层级中，Query来源于前面解码器的输出，而记忆的Key与Value都来自编码器的输出。这允许解码器中的每一个位置都注意输入序列中的所有位置，因此它实际上模仿了序列到序列模型中典型的编码器-解码器注意力机制。
  
+
+
+attention structure
+https://zhuanlan.zhihu.com/p/31547842
+
+luong attention and xx attention 
+http://cnyah.com/2017/08/01/attention-variants/
+
+
