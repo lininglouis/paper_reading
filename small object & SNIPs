@@ -1,0 +1,9 @@
+Dilated convolution: increase the receptive field
+目前学界问题
+Up-sampling / pooling layer (e.g. bilinear interpolation) is deterministic. (a.k.a. not learnable)
+
+
+卫星影像分割
+https://blog.csdn.net/zhangjunhit/article/details/77878373
+https://arxiv.org/abs/1709.00179
+
