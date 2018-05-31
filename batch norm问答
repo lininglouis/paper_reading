@@ -1,0 +1,47 @@
+1 为什么BN要对每个minibatch的mean和std去计算，而不是用所有训练集的mean和std
+因为BN是针对每个层都可以进行mean和std计算，如果能有个大显存，把所有图片都加进来，那么计算的时候当然可以每个层的特征图计算mean和std，然后归一化到0和1
+，再scale-shift。
+但是在SGD里面因为显存做不到，所以只能用每个batch在各个层的mean和std去模拟trainset的mean和std。
+其实在实际计算中，用的mean和std是moving average的，是连续多次迭代这个层的mean和std的moving average值，这样能够更好的动态模拟entire trainingset在这个层的mean和std特性
+
+
+2 BN是针对哪个层进行标准化normalization的？是在激活函数之前还是之后。
+在激活函数之前.
+激活前的分布更加像gaussian分布，这样适合归一化一下影响也不大。 is more likely to have a symmetric,non-sparse distribution, that is more Gaussian.
+而经过激活函数有更多的有non-linearty，也许分布就不是高斯分布了，这样硬性弄成标准正态分布不好。
+
+
+
+3 为什么要加gamma和beta？进行scale-shift
+x_norm = (x-x_mean) /std
+y = gamma * x_norm + beta
+因为不加的话，每一层都归一化到N(0,1)标准正态分布了，这样每一层都这样，根本没有学到输入的分布特征，因此加了gamma和beta。我们通过学习gamma和beta，来和正态分布一起构建分布。
+如果最终学习到的gamma,beta  与 mean,std  相当于又恢复到BN前的分布。这样相当于做了个identity transform。说明BN如果经过训练后，觉得保留原来特征是最优(optimal)的话，是可以保留原来的特征的。
+
+4 BN per-dimension normalization是什么意思？
+就是经过卷积输出m x n x d 的featuremap，深度是d层， 那么经过per dimension norm 就是针对每一层特征图计算mean和std
+img = tf.Variable(tf.random_normal([128, 32, 32, 64]))
+axis = list(range(len(img.get_shape()) - 1))
+mean, variance = tf.nn.moments(img, axis)
+最终mean和variance的输出shape都是 (64,)  (64,)  其实就是每个层的featuremap计算mean和std。 这个dimension其实就是per depth norm
+
+
+
+5 BN训练和测试有什么不同？
+BN训练的时候使用的是running mean和running std。  running_mean = (decay * running_mean + (1-decay)*cur_batch_mean. 动态更新mean和std 
+训练结束后就有一个训练完结束版本的running 和std，这可以可以直接在test的时候拿来用的（就是用train最终得到的running mean和std去估计整个training set的mean和std)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
