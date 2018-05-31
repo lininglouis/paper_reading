@@ -18,6 +18,7 @@ y = gamma * x_norm + beta
 因为不加的话，每一层都归一化到N(0,1)标准正态分布了，这样每一层都这样，根本没有学到输入的分布特征，因此加了gamma和beta。我们通过学习gamma和beta，来和正态分布一起构建分布。
 如果最终学习到的gamma,beta  与 mean,std  相当于又恢复到BN前的分布。这样相当于做了个identity transform。说明BN如果经过训练后，觉得保留原来特征是最优(optimal)的话，是可以保留原来的特征的。
 
+
 4 BN per-dimension normalization是什么意思？
 就是经过卷积输出m x n x d 的featuremap，深度是d层， 那么经过per dimension norm 就是针对每一层特征图计算mean和std
 img = tf.Variable(tf.random_normal([128, 32, 32, 64]))
@@ -25,7 +26,11 @@ axis = list(range(len(img.get_shape()) - 1))
 mean, variance = tf.nn.moments(img, axis)
 最终mean和variance的输出shape都是 (64,)  (64,)  其实就是每个层的featuremap计算mean和std。 这个dimension其实就是per depth norm
 
+这个的per dimension(channel)理念是follow 卷积的。
+卷积是每个featuremap的都是input和同一个卷积核卷积生成出来的，  同样的batchnorm每个featuremap都是去跟同一个(mean,std)运算出来的。
+其实就是一个featuremap对应一个filter对应一个(mean,std)，三者是1v1v1的
 
+ 
 
 5 BN训练和测试有什么不同？
 BN训练的时候使用的是running mean和running std。  running_mean = (decay * running_mean + (1-decay)*cur_batch_mean. 动态更新mean和std 
