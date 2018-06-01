@@ -1,4 +1,4 @@
-Dilated convolution: increase the receptive field
+Dilated convolution: increase the receptive field to detect large objects
 目前学界问题
 Up-sampling / pooling layer (e.g. bilinear interpolation) is deterministic. (a.k.a. not learnable)
 
@@ -7,3 +7,6 @@ Up-sampling / pooling layer (e.g. bilinear interpolation) is deterministic. (a.k
 https://blog.csdn.net/zhangjunhit/article/details/77878373
 https://arxiv.org/abs/1709.00179
 
+
+
+小目标大目标的根本原因是NN没有尺度不变形，因此需要通过建立image pyramid, filter pyramid(dilate conv或者小卷积), feature pyramid(FPN), 或者像SSD一样把不同尺度featuremap concat
