@@ -14,3 +14,14 @@ Deformable Conv和FPN里面的从Conv4位置提取ROI，但是ROIPooling之后�
 2.针对对每个ROIpooling出的featuremap(HxW)，
 3.然后不接Conv5 层而是直接接两个FC，
 4.后输出classification和bbox regression.
+
+
+
+** 在ROI pooling进入rcnn过程中 bakcground ROI的使用 ** <br>
+前景和后景 pooling 都需要提取。
+但是rcnn计算loss的时候，cls_loss需要foreground和background景的ROI。而reg_loss则只需要foreground参与计算loss
+
+ROI align是
+直接用rpn回归出的bbox float小数，往回featuremap找对应的像素值，获得线性内插值。 
+而不像ROI pooling那样还要对像素做量化 quantinization
+
