@@ -1,0 +1,71 @@
+SGD
+
+theta = theta - dJ/dtheta
+
+---------------------Adjust the momentum-----------------------
+
+SGD with Momentum
+
+The momentum term increases for dimensions whose gradients point in the same directions and reduces updates for dimensions whose gradients change directions
+
+vt = gamma * vt-1 + dJ/dtheta
+
+theta = theta - vt
+
+当梯度下降方向相似，加速前进。当前后梯度方向相反，缓步前进
+
+Nesterov
+
+vt = gamma * vt-1 + dJ(theta - yita) / dtheta
+
+theta = theta - vt
+
+
+
+----------------------- Adjust Learning Rate-------------------
+
+Adagrad
+
+(i.e. low learning rates) for parameters associated with frequently occurring features, and larger updates (i.e. high learning rates) for parameters associated with infrequent features. 
+
+使用L2范数得到G， 对于稀疏特征用大learning rate， 对于密集特征，用较小learning rate。
+
+
+
+RMSProp
+
+Adam
+
+
+
+
+
+
+
+--------------------------------------------------------------
+
+past gradient --- first moment of gradient
+
+mt = gamma * mt-1 + gradient
+
+
+
+past squared gradient ---second moment of gradient
+
+vt = gamma * vt-1  + power(graident, 2)
+
+
+
+normaliza
+
+mt = mt / (1-beta ^ t)
+
+vt = vt / (1-beta ^t)
+
+
+
+theta = theta - (alpha / vt)  * mt
+
+
+
+
