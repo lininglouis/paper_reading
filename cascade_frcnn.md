@@ -12,3 +12,6 @@ RPN里面的cls loss其实就是前景后景两类，还不是后面的类别。
 RPN loss =  cls_loss(prob_estiamate, 1或者0) + lambda * (1或者0) * reg_loss(box_anchor, box_gt)
 也就是说如果gt情况下应该分成前景的bbox，要计算regloss。
 而如果gt情况下，这个box应该分成背景，也就是prob_ground_truth =0,那么就不需要计算其regloss了
+
+最终的RPN其实default只计算
+128个IOU>0.7  和128个IOU<0.3的  anchorbox对应的loss
