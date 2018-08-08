@@ -21,6 +21,7 @@
 知乎讨论
 * https://www.zhihu.com/question/32673260/answer/71137399
 * https://zhuanlan.zhihu.com/p/23021473
+
 其他文献
 * https://stats.stackexchange.com/questions/164876/tradeoff-batch-size-vs-number-of-iterations-to-train-a-neural-network
 * https://arxiv.org/abs/1606.02228  Systematic evaluation of CNN advances on the ImageNet  大模型的泛化generalization能力差
