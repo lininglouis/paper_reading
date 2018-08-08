@@ -1,5 +1,5 @@
 
-大batch
+### 大batch
 好处是处理数据速度快，梯度方向能够更明确directly指向极值方向。  
  
 坏处是
@@ -8,16 +8,16 @@
 3. 当batchsize太大的时候，大batch最终收敛的精度可能会比小batch训练达到的精度差(https://arxiv.org/abs/1606.02228)。 
 
 
-小batch
+### 小batch
 1. 收敛速度慢，有更多的抖动噪声，但是随机探索的范围更广，尝试的空间更多，有更多的机会发现更好的极值点，小batch训练的模型泛化能力更强。
 2. 更多的抖动也有助于帮助optimizer远离bad local minima，而不是陷入局部最优. 这种噪声也有些regularization的正则化效果。These results indicate that gradient noise can be beneficial, especially in non-convex optimization. It has been proposed that noise helps SGD escape “sharp minima” which generalize poorly （谷歌论文）
 
 
 
-Quora
+### Quora
 大的网络用大的batch size
 
-参考资源
+### 参考资源
 知乎讨论
 * https://www.zhihu.com/question/32673260/answer/71137399
 * https://zhuanlan.zhihu.com/p/23021473
