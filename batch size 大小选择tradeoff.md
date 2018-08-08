@@ -18,6 +18,10 @@ Quora
 大的网络用大的batch size
 
 参考资源
+知乎讨论
+* https://www.zhihu.com/question/32673260/answer/71137399
+* https://zhuanlan.zhihu.com/p/23021473
+其他文献
 * https://stats.stackexchange.com/questions/164876/tradeoff-batch-size-vs-number-of-iterations-to-train-a-neural-network
 * https://arxiv.org/abs/1606.02228  Systematic evaluation of CNN advances on the ImageNet  大模型的泛化generalization能力差
 * https://arxiv.org/pdf/1609.04836.pdf  大batch模型会有sharp minima
