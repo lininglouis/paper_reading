@@ -10,7 +10,7 @@
 
 ### 小batch
 1. 收敛速度慢，有更多的抖动噪声，但是随机探索的范围更广，尝试的空间更多，有更多的机会发现更好的极值点，小batch训练的模型泛化能力更强。
-2. 更多的抖动也有助于帮助optimizer远离bad local minima，而不是陷入局部最优. 这种噪声也有些regularization的正则化效果。These results indicate that gradient noise can be beneficial, especially in non-convex optimization. It has been proposed that noise helps SGD escape “sharp minima” which generalize poorly （谷歌论文）
+2. 更多的抖动也有助于帮助optimizer远离bad local minima，而不是陷入局部最优. 这种噪声也有些regularization的正则化效果。These results indicate that gradient noise can be beneficial, especially in non-convex optimization. It has been proposed that noise helps SGD escape “sharp minima” which generalize poorly （谷歌论文 https://arxiv.org/pdf/1711.00489.pdf提到）
 
 
 
